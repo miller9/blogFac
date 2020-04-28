@@ -4,6 +4,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id]) # using the same value defined on GET route. (:id) ('id')
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id]) # using the same value defined on GET route. (:id) ('id')
+    @article.update(title: params[:article][:title], content: params[:article][:content])
+
+    redirect_to @article
+  end
+
   # mostrar un form que pemita crear el article, con title por Default
   def new
     @article = Article.new

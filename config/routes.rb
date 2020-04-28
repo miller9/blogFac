@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get "articles/new", to: "articles#new"
   get "articles/:id", to: "articles#show" #using :id to get specific values inside SHOW
+  get "articles/:id/edit", to: "articles#edit"
+
+  patch "/articles/:id", to: "articles#update", as: :article # nombre de la ruta
   post "articles", to: "articles#create" # solves GET route issue..
 
 end
