@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 
+  def show
+    @article = Article.find(params[:id]) # using the same value defined on GET route. (:id) ('id')
+  end
+
   # mostrar un form que pemita crear el article, con title por Default
   def new
     @article = Article.new
