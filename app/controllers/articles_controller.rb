@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   # guardar lo recibido del formulario
   def create
-    @article = Article.create(title: params[:article][:title])
+    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
     render json: @article
   end
 
