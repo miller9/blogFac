@@ -1,8 +1,9 @@
 <h1> Mis Articulos </h1>
 
 <% @articles.each do |article| %>
-  <div>
-    <%= article.id %>
-    <%= article.title %>
+  <div class="card" style="padding:15px;max-width:300px;margin-top:1em">
+    <h3 class="text-uppercase"><%= article.title %></h3>
+    <p class="text-secondary"><%= article.created_at %></p>
+    <%= link_to "Ver mas", article %>
   </div>
 <% end %>
