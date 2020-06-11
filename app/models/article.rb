@@ -6,15 +6,15 @@ class Article < ApplicationRecord
   attr_accessor :category_elements
 
   def save_categories
-    # category_elements 1,2,3...
-    # Convertir a array 1,2,3 => [1,2,3]
-    categories_array = category_elements.split(",")
+      # category_elements 1,2,3...
+      # Convertir a array 1,2,3 => [1,2,3]
+      #categories_array = category_elements.split(",") --> Ahora ya viene como array
     # Iterar el array
     # Crear HasCategory, para establecer la relacion
     #   HasCategory<article_id: 1, category_id: 2>
-    categories_array.each do |category_id|
+    category_elements.each do |category_id|
       HasCategory.find_or_create_by(article: self, category_id: category_id)
     end
   end
-  
+
 end
