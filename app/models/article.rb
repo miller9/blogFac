@@ -13,10 +13,7 @@ class Article < ApplicationRecord
     # Crear HasCategory, para establecer la relacion
     #   HasCategory<article_id: 1, category_id: 2>
     categories_array.each do |category_id|
-      HasCategory.create(article: self, category_id: category_id)
-    end
-
-
+      HasCategory.find_or_create_by(article: self, category_id: category_id)
   end
 
 end
