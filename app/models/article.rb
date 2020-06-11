@@ -14,6 +14,7 @@ class Article < ApplicationRecord
     #   HasCategory<article_id: 1, category_id: 2>
     categories_array.each do |category_id|
       HasCategory.find_or_create_by(article: self, category_id: category_id)
+    end
   end
-
+  
 end

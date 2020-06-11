@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -21,6 +22,7 @@ class ArticlesController < ApplicationController
   # mostrar un form que pemita crear el article, con title por Default
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   # guardar lo recibido del formulario
