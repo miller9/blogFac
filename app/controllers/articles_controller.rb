@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update(title: params[:article][:title], content: params[:article][:content])
+    @article.update(article_params)
 
     redirect_to @article
   end
@@ -25,12 +25,8 @@ class ArticlesController < ApplicationController
 
   # guardar lo recibido del formulario
   def create
-    # @article = Article.create(title: params[:article][:title],
-    #                          content: params[:article][:content],
-    #                         user: current_user) #2a forma
-    @article = current_user.articles.create(title: params[:article][:title],
-                              content: params[:article][:content]) # forma mas comun (usando la asociacion)
-    render json: @article
+    @article = current_user.articles.create(article_params)
+    redirect_to @article
   end
 
   def destroy
@@ -45,6 +41,10 @@ class ArticlesController < ApplicationController
 
   def find_article
     @article = Article.find(params[:id]) # using the same value defined on GET route. (:id) ('id')
+  end
+
+  def article_params
+    params.require(:article).permit(:title,:content)
   end
 
 end
