@@ -25,7 +25,11 @@ class ArticlesController < ApplicationController
 
   # guardar lo recibido del formulario
   def create
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+    # @article = Article.create(title: params[:article][:title],
+    #                          content: params[:article][:content],
+    #                         user: current_user) #2a forma
+    @article = current_user.articles.create(title: params[:article][:title],
+                              content: params[:article][:content]) # forma mas comun (usando la asociacion)
     render json: @article
   end
 
