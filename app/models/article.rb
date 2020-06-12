@@ -10,6 +10,8 @@ class Article < ApplicationRecord
       # Convertir a array 1,2,3 => [1,2,3]
       #categories_array = category_elements.split(",") --> Ahora ya viene como array
     return has_categories.destroy_all if category_elements.nil? || category_elements.empty?
+
+    has_categories.where.not(category_id: category_elements).destroy_all
     # Iterar el array
     # Crear HasCategory, para establecer la relacion
     #   HasCategory<article_id: 1, category_id: 2>
