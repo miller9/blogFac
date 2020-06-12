@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "bienvenida", to: "home#index"
+  get "perfil", to:"users#edit"
 
   root to: "home#index"
   resources :categories
