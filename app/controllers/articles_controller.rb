@@ -36,6 +36,13 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to root_path
+#    @article = Article.find(params[:id])
+#    if current_user == @article.user
+#        @article.destroy
+#    else
+#      redirect_to @article and return
+#    end
+#    redirect_to root_path
   end
 
   def from_author

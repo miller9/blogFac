@@ -23,6 +23,8 @@
 
   <div>
       <!-- <%= link_to "Eliminar el articulo", @article, method: :delete %> -->
+      <% if current_user == @article.user %>
+
       <%= link_to 'Eliminar el articulo', '#', "data-toggle"=>"modal", "data-target" => "#delete-#{@article.id}" %>
           <div class="modal fade" id="delete-<%= @article.id %>" role="dialog">
             <div class="modal-dialog">
@@ -43,6 +45,7 @@
             </div>
          </div>
       |
+         <% end %>
       <%= link_to 'Back', articles_path %>
   </div>
 </div>
