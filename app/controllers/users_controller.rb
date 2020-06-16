@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! # skip_before_filter
   def edit
-
+    #current_user
+    #redirect_to perfil_path
   end
 
   def update
